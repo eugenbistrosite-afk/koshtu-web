@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Видалення акаунту та персональних даних (Account Deletion) — Koshtu</title>
+  <meta name="description" content="Інструкція та форма запиту на повне видалення облікового запису і персональних даних у мобільному застосунку Koshtu відповідно до вимог Apple App Store та Google Play." />
+  <link rel="icon" type="image/jpeg" href="assets/app-icon.jpg" />
+  <link rel="apple-touch-icon" href="assets/app-icon.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261105e" />
+  <!-- Vercel Web Analytics & Speed Insights -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link button-sm" data-i18n="skip_link">Перейти до основного вмісту</a>
+
+  <header class="nav-wrapper">
+    <nav class="floating-nav" aria-label="Головна навігація">
+      <a href="index.html" class="brand-link">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="assets/app-icon.jpg" alt="" width="34" height="34" class="brand-icon-img" />
+        </span>
+        <span class="title-3">Koshtu.app</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="index.html" class="nav-link title-4" data-i18n="legal_nav_home">На головну</a></li>
+        <li><a href="privacy.html" class="nav-link title-4" data-i18n="legal_nav_privacy">Конфіденційність</a></li>
+        <li><a href="terms.html" class="nav-link title-4" data-i18n="legal_nav_terms">Умови та підтримка</a></li>
+        <li><a href="account-deletion.html" class="nav-link title-4" aria-current="page" data-i18n="legal_nav_deletion">Видалення даних</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button
+          type="button"
+          class="lang-circle-btn"
+          data-lang-toggle
+          data-lang-switch="en"
+          data-current-lang="uk"
+          aria-label="Switch to English"
+          title="Switch to English"
+        >
+          <svg class="lang-circle-flag lang-circle-flag-uk" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="16" fill="#0057B7" />
+            <rect y="16" width="32" height="16" fill="#FFD700" />
+          </svg>
+          <svg class="lang-circle-flag lang-circle-flag-en" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" fill="#012169" />
+            <path d="M0,0 L32,32 M32,0 L0,32" stroke="#FFFFFF" stroke-width="5" />
+            <path d="M0,0 L32,32 M32,0 L0,32" stroke="#C8102E" stroke-width="2.8" />
+            <path d="M16,0 V32 M0,16 H32" stroke="#FFFFFF" stroke-width="8" />
+            <path d="M16,0 V32 M0,16 H32" stroke="#C8102E" stroke-width="4.8" />
+          </svg>
+        </button>
+        <a href="index.html#download-cta" class="btn btn-nav-illustrative button-sm nav-cta-desktop" data-i18n="nav_cta">Спробувати</a>
+        <button
+          type="button"
+          class="menu-toggle"
+          data-menu-toggle
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Відкрити меню навігації"
+        >
+          <span class="menu-toggle-bar"></span>
+          <span class="menu-toggle-bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <div id="mobile-menu" class="mobile-menu" data-mobile-menu aria-hidden="true">
+    <ul class="mobile-menu-list">
+      <li class="mobile-menu-item"><a href="index.html" class="heading-4" data-i18n="legal_nav_home">На головну</a></li>
+      <li class="mobile-menu-item"><a href="privacy.html" class="heading-4" data-i18n="footer_privacy">Політика конфіденційності</a></li>
+      <li class="mobile-menu-item"><a href="terms.html" class="heading-4" data-i18n="footer_terms">Умови використання та підтримка</a></li>
+      <li class="mobile-menu-item"><a href="account-deletion.html" class="heading-4" data-i18n="footer_deletion">Видалення акаунту</a></li>
+    </ul>
+    <div>
+      <a href="index.html" class="btn btn-primary button-md" style="width: 100%;" data-i18n="legal_back_btn">Повернутися до Koshtu</a>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <section class="legal-header">
+      <div class="container" style="padding-top: var(--sp-400);">
+        <div class="hero-badge">
+          <span class="hero-badge-dot" aria-hidden="true"></span>
+          <span class="caption-1">Apple Guideline 5.1.1(v) &amp; Google Play Data Safety</span>
+        </div>
+        <h1 class="heading-1 hero-heading" data-i18n="del_title">Видалення акаунту та даних</h1>
+        <p class="title-2 text-secondary" style="max-width: 680px;" data-i18n="del_subtitle">
+          Ви керуєте своїми даними на 100%. Стріть усі записи за секунду прямо в застосунку Koshtu або залиште запит нижче, якщо вже видалили застосунок із телефона.
+        </p>
+      </div>
+    </section>
+
+    <div class="container">
+      <div class="legal-content">
+        <!-- Method 1 -->
+        <article class="legal-card" style="background-color: var(--stage-mint);">
+          <div class="caption-3" data-i18n="del_m1_badge">Спосіб 1 · Займає 5 секунд</div>
+          <h2 class="heading-5" data-i18n="del_m1_title">Миттєво всередині застосунку Koshtu</h2>
+          <p class="body-3" style="color: #1F2937;" data-i18n="del_m1_desc">
+            Якщо застосунок Koshtu ще встановлений на вашому телефоні, ви можете стерти всі дані самостійно в чотири прості кроки:
+          </p>
+          <ol class="legal-list body-3" style="color: #1F2937;">
+            <li data-i18n-html="del_m1_li1">Відкрийте застосунок <strong>Koshtu</strong> на телефоні.</li>
+            <li data-i18n-html="del_m1_li2">Перейдіть у вкладку <strong>Налаштування</strong> внизу екрана.</li>
+            <li data-i18n-html="del_m1_li3">Натисніть <strong>«Видалити акаунт та дані»</strong>.</li>
+            <li data-i18n="del_m1_li4">Підтвердіть видалення — усі ваші бюджети, історія витрат і дані входу зітруться миттєво й назавжди.</li>
+          </ol>
+        </article>
+
+        <!-- Method 2 -->
+        <article class="legal-card">
+          <div class="caption-3 text-secondary" data-i18n="del_m2_badge">Спосіб 2 · Якщо ви вже видалили застосунок</div>
+          <h2 class="heading-5" data-i18n="del_m2_title">Видалення через форму на сайті</h2>
+          <p class="body-3 text-secondary" data-i18n-html="del_m2_p1">
+            Якщо ви входили через Apple або Google, але вже видалили Koshtu зі смартфона, просто вкажіть пошту вашого акаунту нижче або напишіть на <a href="mailto:support@koshtu.app?subject=Account%20Deletion%20Request" class="mono-num" style="text-decoration: underline; color: var(--text-dark);">support@koshtu.app</a>.
+          </p>
+          <p class="body-3 text-secondary" data-i18n-html="del_m2_p2">
+            Ми повністю видалимо ваш профіль та всі пов'язані дані протягом <strong>48 годин</strong> і надішлемо вам підтвердження.
+          </p>
+
+          <form data-validated-form="deletion" novalidate style="margin-top: var(--sp-100); display: flex; flex-direction: column; gap: var(--sp-200);">
+            <div>
+              <label for="deletion-email" class="body-4" style="display: block; margin-bottom: var(--sp-75);" data-i18n="del_email_label">
+                Пошта вашого акаунту (Sign in with Apple / Google)
+              </label>
+              <input
+                id="deletion-email"
+                type="email"
+                name="email"
+                class="input-field body-3"
+                placeholder="Введіть email вашого акаунту"
+                data-i18n-placeholder="del_email_placeholder"
+                autocomplete="email"
+                required
+              />
+            </div>
+
+            <div>
+              <button type="submit" class="btn btn-primary button-md" data-i18n="del_submit_btn">
+                Видалити мої дані назавжди
+              </button>
+            </div>
+
+            <div class="skeleton-loader" data-form-skeleton aria-hidden="true">
+              <div class="skeleton-bar"></div>
+            </div>
+            <div class="form-feedback caption-1" data-form-feedback role="status" aria-live="polite"></div>
+          </form>
+        </article>
+
+        <!-- Subscription Notice -->
+        <article class="legal-card" style="background-color: var(--stage-peach);">
+          <h2 class="heading-6" data-i18n="del_note_title">Важливо: перевірте активні підписки в App Store чи Google Play</h2>
+          <p class="body-3" style="color: #1F2937;" data-i18n-html="del_note_body">
+            Видалення даних або застосунку з телефона <strong>не скасовує</strong> підписку в магазині застосунків автоматично. Щоб кошти не списувалися далі, будь ласка, скасуйте підписку у налаштуваннях свого <strong>Apple ID</strong> або <strong>Google Play</strong>.
+          </p>
+          <div>
+            <a href="index.html" class="btn btn-secondary button-sm" data-i18n="legal_back_btn">Повернутися до Koshtu</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div class="footer-brand-copy">
+        <span class="footer-app-icon" aria-hidden="true">
+          <img src="assets/app-icon.jpg" alt="" width="26" height="26" />
+        </span>
+        <span class="caption-1 text-secondary" data-i18n="footer_copy">© 2026 Koshtu.app. Всі права захищені.</span>
+      </div>
+
+      <div class="footer-socials" aria-label="Соціальні мережі">
+        <a href="#" class="social-circle-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+            <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+          </svg>
+        </a>
+        <a href="#" class="social-circle-link" aria-label="Threads" target="_blank" rel="noopener noreferrer">
+          <svg width="18" height="18" viewBox="0 0 192 192" fill="currentColor" aria-hidden="true">
+            <path d="M141.537 88.9883C140.71 88.5919 139.87 88.2109 139.019 87.8451C137.537 60.5382 122.616 44.905 97.4619 44.905C71.3934 44.905 53.0786 63.8824 53.0786 93.6335C53.0786 123.639 71.4984 142.457 98.0561 142.457C118.887 142.457 133.407 131.782 138.804 114.921H118.423C114.398 123.774 105.748 127.426 97.5252 127.426C80.3708 127.426 69.9678 114.471 69.9678 93.3769C69.9678 72.8256 80.5284 60.108 97.5252 60.108C113.885 60.108 121.788 71.9392 122.955 89.2811C107.037 87.5283 93.0232 90.7303 84.1868 98.7188C76.2486 105.894 72.5833 115.178 74.3218 123.774C76.5165 134.629 86.8279 140.767 98.3976 140.767C113.238 140.767 122.928 132.84 125.797 121.378C127.659 121.728 129.544 121.905 131.442 121.905C148.972 121.905 159 110.871 159 92.8315C159 91.536 158.949 90.2503 158.847 88.9772C154.214 88.2346 148.149 88.0645 141.537 88.9883ZM98.7065 125.59C90.2825 125.59 86.4859 120.468 85.8082 115.342C85.1278 110.188 87.9745 104.912 94.6185 101.405C99.6455 98.751 106.772 97.5283 118.069 98.6678C117.159 116.143 110.283 125.59 98.7065 125.59Z"/>
+          </svg>
+        </a>
+        <a href="#" class="social-circle-link" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+            <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+          </svg>
+        </a>
+      </div>
+
+      <ul class="footer-links">
+        <li><a href="index.html" class="footer-link caption-1" data-i18n="legal_nav_home">На головну</a></li>
+        <li><a href="privacy.html" class="footer-link caption-1" data-i18n="footer_privacy">Політика конфіденційності</a></li>
+        <li><a href="terms.html" class="footer-link caption-1" data-i18n="footer_terms">Умови використання та підтримка</a></li>
+        <li><a href="account-deletion.html" class="footer-link caption-1" data-i18n="footer_deletion">Видалення акаунту</a></li>
+      </ul>
+    </div>
+  </footer>
+
+  <script src="app.js?v=20261105e"></script>
+</body>
+</html>

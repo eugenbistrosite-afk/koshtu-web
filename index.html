@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Koshtu — Твій щоденний ліміт та контроль боргів без стресу</title>
+  <meta name="description" content="Koshtu автоматично вираховує безпечну суму витрат на сьогодні та допомагає закривати борги швидше. Всі фінансові записи зберігаються локально на твоєму смартфоні." />
+  <meta property="og:title" content="Koshtu — Твій щоденний ліміт під контролем" />
+  <meta property="og:description" content="Персональний трекер денних лімітів і калькулятор повернення боргів з повною приватністю на пристрої." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/mockup-daily-trio.jpg" />
+  <link rel="icon" type="image/jpeg" href="assets/app-icon.jpg" />
+  <link rel="apple-touch-icon" href="assets/app-icon.jpg" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles.css?v=20261105e" />
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Чи потрібно прив'язувати банківську картку до Koshtu?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ні. Koshtu не запитує банківські реквізити чи доступ до рахунків. Ви вводите суму бюджету та витрати вручну за дві секунди через вбудовану клавіатуру."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Де зберігаються мої фінансові записи та суми боргів?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Усі ліміти, витрати та записи про борги зберігаються локально у внутрішній пам'яті вашого смартфона (AsyncStorage) без передачі на сторонні аналітичні чи рекламні сервери."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Як розраховується безпечний залишок на сьогодні?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Ви задаєте загальний бюджет (наприклад, 35 000 ₴ на продукти) і тривалість у днях. Кожного дня Koshtu ділить доступний залишок на кількість днів, що залишилися, та миттєво оновлює денну норму після кожної витрати або доходу."
+        }
+      }
+    ]
+  }
+  </script>
+  <!-- Vercel Web Analytics & Speed Insights -->
+  <script>
+    window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    window.si = window.si || function () { (window.siq = window.siq || []).push(arguments); };
+  </script>
+  <script defer src="/_vercel/insights/script.js"></script>
+  <script defer src="/_vercel/speed-insights/script.js"></script>
+</head>
+<body>
+  <a href="#main-content" class="skip-link button-sm" data-i18n="skip_link">Перейти до основного вмісту</a>
+
+  <!-- B7. Floating Top Navigation Bar with Language Switcher & "Delete Account" button -->
+  <header class="nav-wrapper">
+    <nav class="floating-nav" aria-label="Головна навігація">
+      <a href="index.html" class="brand-link" aria-current="page">
+        <span class="brand-mark" aria-hidden="true">
+          <img src="assets/app-icon.jpg" alt="" width="34" height="34" class="brand-icon-img" />
+        </span>
+        <span class="title-3">Koshtu.app</span>
+      </a>
+
+      <ul class="nav-links">
+        <li><a href="#live-sandbox" class="nav-link title-4" data-i18n="nav_calc">Калькулятор</a></li>
+        <li><a href="#user-journey" class="nav-link title-4" data-i18n="nav_how">Як працює</a></li>
+        <li><a href="#benefits" class="nav-link title-4" data-i18n="nav_benefits">Переваги</a></li>
+        <li><a href="#privacy-proof" class="nav-link title-4" data-i18n="nav_privacy">Приватність</a></li>
+        <li><a href="#faq" class="nav-link title-4" data-i18n="nav_faq">Питання</a></li>
+        <li><a href="account-deletion.html" class="nav-link title-4" data-i18n="nav_delete">Видалити дані</a></li>
+      </ul>
+
+      <div class="nav-actions">
+        <button
+          type="button"
+          class="lang-circle-btn"
+          data-lang-toggle
+          data-lang-switch="en"
+          data-current-lang="uk"
+          aria-label="Switch to English"
+          title="Switch to English"
+        >
+          <svg class="lang-circle-flag lang-circle-flag-uk" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="16" fill="#0057B7" />
+            <rect y="16" width="32" height="16" fill="#FFD700" />
+          </svg>
+          <svg class="lang-circle-flag lang-circle-flag-en" viewBox="0 0 32 32" aria-hidden="true">
+            <rect width="32" height="32" fill="#012169" />
+            <path d="M0,0 L32,32 M32,0 L0,32" stroke="#FFFFFF" stroke-width="5" />
+            <path d="M0,0 L32,32 M32,0 L0,32" stroke="#C8102E" stroke-width="2.8" />
+            <path d="M16,0 V32 M0,16 H32" stroke="#FFFFFF" stroke-width="8" />
+            <path d="M16,0 V32 M0,16 H32" stroke="#C8102E" stroke-width="4.8" />
+          </svg>
+        </button>
+
+        <a href="#download-cta" class="btn btn-nav-illustrative button-sm nav-cta-desktop" data-i18n="nav_cta">Спробувати</a>
+        <button
+          type="button"
+          class="menu-toggle"
+          data-menu-toggle
+          aria-expanded="false"
+          aria-controls="mobile-menu"
+          aria-label="Відкрити меню навігації"
+        >
+          <span class="menu-toggle-bar"></span>
+          <span class="menu-toggle-bar"></span>
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- B7. Full-Height Mobile Menu -->
+  <div id="mobile-menu" class="mobile-menu" data-mobile-menu aria-hidden="true">
+    <ul class="mobile-menu-list">
+      <li class="mobile-menu-item"><a href="#live-sandbox" class="heading-4" data-i18n="nav_calc">Калькулятор</a></li>
+      <li class="mobile-menu-item"><a href="#user-journey" class="heading-4" data-i18n="nav_how">Як працює</a></li>
+      <li class="mobile-menu-item"><a href="#benefits" class="heading-4" data-i18n="nav_benefits">Переваги</a></li>
+      <li class="mobile-menu-item"><a href="#privacy-proof" class="heading-4" data-i18n="nav_privacy">Приватність</a></li>
+      <li class="mobile-menu-item"><a href="#faq" class="heading-4" data-i18n="nav_faq">Питання</a></li>
+      <li class="mobile-menu-item"><a href="account-deletion.html" class="title-1 text-secondary" data-i18n="nav_delete">Видалити дані</a></li>
+    </ul>
+    <div style="display: flex; flex-direction: column; gap: var(--sp-100);">
+      <a href="account-deletion.html" class="btn btn-ghost-danger button-md" style="width: 100%;" data-i18n="nav_delete">Видалити дані</a>
+      <a href="#download-cta" class="btn btn-primary button-md" style="width: 100%;" data-i18n="nav_cta">Спробувати</a>
+    </div>
+  </div>
+
+  <main id="main-content">
+    <!-- 1. HERO SECTION -->
+    <section class="hero-section">
+      <div class="container hero-inner">
+        <div class="hero-copy-col">
+          <h1 class="heading-display hero-heading reveal-on-scroll" style="--reveal-delay: 0ms" data-scroll-compose data-i18n-html="hero_heading">
+            Знай свою суму<br />
+            на сьогодні.<br />
+            Витрачай спокійно.
+          </h1>
+
+          <p class="title-1 hero-subheading reveal-on-scroll" style="--reveal-delay: 120ms" data-i18n="hero_subheading">
+            Koshtu за секунду підкаже, скільки можна безпечно витратити сьогодні, щоб грошей вистачило до кінця місяця, а борги закривалися швидше.
+          </p>
+        </div>
+
+        <!-- Hero Visual: 3D Product Promo Seamless Loop Video -->
+        <div class="showcase-wrap reveal-on-scroll" style="--reveal-delay: 150ms">
+          <div class="hero-video-stage">
+            <video
+              src="assets/hero-promo.mp4"
+              poster="assets/screen-today-expense.jpg"
+              class="hero-promo-video"
+              autoplay
+              loop
+              muted
+              playsinline
+              preload="auto"
+              aria-label="3D анімація інтерфейсу мобільного застосунку Koshtu із денним лімітом та контролем боргів"
+            ></video>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- SECTION 1: Live Interactive Calculator on a Vibrant Mint Stage -->
+      <section class="story-block" id="live-sandbox">
+        <div class="story-intro reveal-on-scroll" data-parallax="-0.03">
+          <div class="section-eyebrow">
+            <span class="caption-3" data-i18n="calc_eyebrow">Живий калькулятор</span>
+          </div>
+          <h2 class="heading-2" data-scroll-compose data-i18n="calc_heading">
+            Перевір, як Koshtu береже твій бюджет щодня
+          </h2>
+          <p class="body-3 text-secondary" data-i18n="calc_desc">
+            Порухай повзунки: заощаджені сьогодні гроші автоматично збільшать твій ліміт на завтра. Жодних таблиць і ручного ділення в калькуляторі.
+          </p>
+        </div>
+
+        <div class="color-stage stage-mint reveal-on-scroll" data-scale-stage style="--reveal-delay: 150ms">
+          <div class="calc-window">
+            <div style="display: flex; flex-direction: column; gap: var(--sp-300);">
+              <div class="slider-group">
+                <div class="slider-header">
+                  <label for="calc-budget" class="body-4" data-i18n="calc_label_budget">Твій бюджет на категорію</label>
+                  <span id="calc-budget-val" class="title-2 mono-num" style="color: var(--stage-mint);">35 000 ₴</span>
+                </div>
+                <input id="calc-budget" type="range" class="range-slider" min="5000" max="100000" step="1000" value="35000" />
+              </div>
+
+              <div class="slider-group">
+                <div class="slider-header">
+                  <label for="calc-days" class="body-4" data-i18n="calc_label_days">На скільки днів</label>
+                  <span id="calc-days-val" class="title-2 mono-num" style="color: var(--stage-mint);">18 днів</span>
+                </div>
+                <input id="calc-days" type="range" class="range-slider" min="5" max="31" step="1" value="18" />
+              </div>
+
+              <div class="slider-group">
+                <div class="slider-header">
+                  <label for="calc-spent" class="body-4" data-i18n="calc_label_spent">Витрачено сьогодні</label>
+                  <span id="calc-spent-val" class="title-2 mono-num" style="color: var(--stage-mint);">1 278 ₴</span>
+                </div>
+                <input id="calc-spent" type="range" class="range-slider" min="0" max="4000" step="50" value="1278" />
+              </div>
+            </div>
+
+            <div class="calc-live-card">
+              <div>
+                <div class="caption-2" style="color: #9CA3AF;" data-i18n="calc_out_today">Можна спокійно витратити сьогодні</div>
+                <div id="calc-safe-today" class="heading-display mono-num" style="margin-top: var(--sp-75); color: var(--stage-mint);">666 ₴</div>
+                <div class="progress-track" style="margin-top: var(--sp-200); background-color: #374151;" aria-hidden="true">
+                  <div id="calc-progress-fill" class="progress-fill-limit" style="width: 65%;"></div>
+                </div>
+              </div>
+
+              <div class="calc-subgrid">
+                <div class="calc-stat-box">
+                  <div class="caption-4" style="color: #9CA3AF;" data-i18n="calc_out_tomorrow">Твій ліміт на завтра</div>
+                  <div id="calc-tomorrow-limit" class="heading-5 mono-num" style="margin-top: var(--sp-50);">1 984 ₴</div>
+                  <div class="caption-5" style="margin-top: var(--sp-25); color: #9CA3AF;" data-i18n="calc_out_tomorrow_sub">Невитрачене переходить на завтра</div>
+                </div>
+
+                <div class="calc-stat-box">
+                  <div class="caption-4" style="color: #9CA3AF;" data-i18n="calc_out_total">Залишок до кінця періоду</div>
+                  <div id="calc-remaining-total" class="heading-5 mono-num" style="margin-top: var(--sp-50);">33 722 ₴</div>
+                  <div class="caption-5" style="margin-top: var(--sp-25); color: #9CA3AF;" data-i18n="calc_out_total_sub">Перераховується за секунду</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 2–4: Typewave-Style Sticky Stacking Cards ("How It Works") -->
+      <section class="story-block" id="user-journey">
+        <div class="story-intro reveal-on-scroll" data-parallax="-0.03">
+          <div class="section-eyebrow">
+            <span class="caption-3" data-i18n="journey_eyebrow">Як працює Koshtu</span>
+          </div>
+          <h2 class="heading-2" data-scroll-compose data-i18n="journey_heading">
+            Забудь про складні таблиці. Записуй витрату за дві секунди
+          </h2>
+        </div>
+
+        <div class="sticky-cards-stack" data-sticky-cards>
+
+          <!-- Sticky Card 1: Warm Peach Stage -->
+          <article class="color-stage stage-peach sticky-stage-card">
+            <div class="sticky-card-header">
+              <div class="section-eyebrow" style="background-color: var(--bg-primary);">
+                <span class="caption-3" data-i18n="step1_eyebrow">Крок 01 · Старт за 30 секунд</span>
+              </div>
+              <h3 class="heading-3" data-i18n="step1_heading">
+                Створи перший бюджет за чотири прості підказки
+              </h3>
+              <p class="body-3" style="color: #1F2937; max-width: 680px;" data-i18n="step1_desc">
+                Відкрий застосунок — і короткий інтерактивний гід одразу покаже головне: як задати суму на місяць, записати покупку, побачити свій ліміт на сьогодні та легко скасувати випадковий запис.
+              </p>
+            </div>
+
+            <div class="stage-window">
+              <img
+                src="assets/mockup-onboarding-steps.jpg"
+                alt="Чотири екрани iPhone з інтерактивним навчанням у застосунку Koshtu"
+                width="1024"
+                height="559"
+              />
+            </div>
+            <div class="currency-badges">
+              <span class="currency-tag is-active caption-3" data-i18n="step1_tag1">1 · Перший бюджет</span>
+              <span class="currency-tag caption-3" data-i18n="step1_tag2">2 · Витрати за 2 секунди</span>
+              <span class="currency-tag caption-3" data-i18n="step1_tag3">3 · Сума на сьогодні</span>
+              <span class="currency-tag caption-3" data-i18n="step1_tag4">4 · Історія та скасування</span>
+            </div>
+          </article>
+
+          <!-- Sticky Card 2: Soft Rose Pink Stage -->
+          <article class="color-stage stage-pink sticky-stage-card">
+            <div class="sticky-card-header">
+              <div class="section-eyebrow" style="background-color: var(--bg-primary);">
+                <span class="caption-3" data-i18n="step2_eyebrow">Крок 02 · Щоденна звичка без зусиль</span>
+              </div>
+              <h3 class="heading-3" data-i18n="step2_heading">
+                Додавай чек із кав'ярні чи супермаркету за два дотики
+              </h3>
+              <p class="body-3" style="color: #1F2937; max-width: 680px;" data-i18n="step2_desc">
+                Клавіатура вже чекає на головному екрані «Сьогодні». Введи суму, перемкни «плюс» для доходу або «мінус» для витрати, обери будь-яку з 5 валют і розфарбуй конверти в улюблені пастельні відтінки.
+              </p>
+            </div>
+
+            <div class="stage-window">
+              <img
+                src="assets/mockup-daily-trio.jpg"
+                alt="Три екрани iPhone: додавання доходу 372 166 гривень, витрата 1 278 гривень та налаштування ліміту"
+                width="1024"
+                height="559"
+              />
+            </div>
+            <div class="currency-badges" aria-label="Підтримувані валюти у застосунку">
+              <span class="currency-tag is-active body-4 mono-num">₴ UAH</span>
+              <span class="currency-tag body-4 mono-num">$ USD</span>
+              <span class="currency-tag body-4 mono-num">€ EUR</span>
+              <span class="currency-tag body-4 mono-num">zł PLN</span>
+              <span class="currency-tag body-4 mono-num">£ GBP</span>
+            </div>
+          </article>
+
+          <!-- Sticky Card 3: Sky Cyan Stage -->
+          <article class="color-stage stage-cyan sticky-stage-card">
+            <div class="sticky-card-header">
+              <div class="section-eyebrow" style="background-color: var(--bg-primary);">
+                <span class="caption-3" data-i18n="step3_eyebrow">Крок 03 · Свобода від боргів та реєстрацій</span>
+              </div>
+              <h3 class="heading-3" data-i18n="step3_heading">
+                Закривай борги у комфортному темпі та користуйся без акаунту
+              </h3>
+              <p class="body-3" style="color: #1F2937; max-width: 680px;" data-i18n="step3_desc">
+                Запиши кому, скільки і до якої дати хочеш повернути, та спостерігай, як тане сума боргу з кожним платежем. Працюй анонімно в локальному режимі «Гість» і обирай світлу чи темну тему.
+              </p>
+            </div>
+
+            <div class="stage-window">
+              <img
+                src="assets/mockup-settings-debt.jpg"
+                alt="Два екрани iPhone: налаштування локального режиму Гість і теми та модальне вікно Додати борг"
+                width="1024"
+                height="559"
+              />
+            </div>
+            <div class="currency-badges">
+              <span class="currency-tag is-active caption-3" data-i18n="step3_tag1">Режим «Гість» без реєстрації</span>
+              <span class="currency-tag caption-3" data-i18n="step3_tag2">Світла, темна й системна теми</span>
+              <span class="currency-tag caption-3" data-i18n="step3_tag3">Наочний прогрес закриття боргу</span>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+    </div>
+
+    <!-- MANDATORY TAGLINE REVEAL SECTION (Centered + Typewave Character/Word Scroll Compose) -->
+    <section class="tagline-section" aria-label="Ключовий принцип Koshtu">
+      <div class="container">
+        <div class="tagline-container" data-tagline-reveal>
+          <p class="heading-2 tagline-text" data-tagline-words data-scroll-compose="tagline" data-i18n="tagline_full">
+            Коли точно знаєш свою безпечну суму на сьогодні — купуєш без почуття провини, а борги закриваєш швидше й спокійніше.
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+
+      <!-- SECTION 5: Colorful Borderless Bento Grid -->
+      <section class="story-block" id="benefits">
+        <div class="story-intro reveal-on-scroll" data-parallax="-0.03">
+          <div class="section-eyebrow">
+            <span class="caption-3" data-i18n="bento_eyebrow">Чому саме Koshtu</span>
+          </div>
+          <h2 class="heading-2" data-scroll-compose data-i18n="bento_heading">
+            Створений для спокою за гроші, а не для нудної бухгалтерії
+          </h2>
+          <p class="body-3 text-secondary" data-i18n="bento_desc">
+            Кожен екран дає миттєву відповідь на два головні питання: скільки можна витратити сьогодні без шкоди для планів і скільки залишилося до повного закриття боргу.
+          </p>
+        </div>
+
+        <div class="bento-grid">
+          <article class="bento-card span-8 bg-mint reveal-on-scroll" style="--reveal-delay: 0ms" data-scale-card>
+            <div>
+              <div class="icon-box" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor">
+                  <path d="M221.87,83.16A104.1,104.1,0,1,1,195.67,49l22.67-22.68a8,8,0,0,1,11.32,11.32L206,60.25a8,8,0,0,1-11.31-11.31l10-10a88,88,0,1,0,22.12,51.23,8,8,0,0,1,15.06-5.21ZM128,72a56,56,0,1,0,56,56,55.58,55.58,0,0,0-9.06-30.52l-23.81,23.81a24,24,0,1,1-11.31-11.31l23.81-23.81A55.58,55.58,0,0,0,128,72Z"/>
+                </svg>
+              </div>
+              <h3 class="heading-5" style="margin-bottom: var(--sp-100);" data-i18n="bento1_title">
+                Живий ліміт на сьогодні
+              </h3>
+              <p class="body-3" style="color: #1F2937;" data-i18n-html="bento1_desc">
+                <strong class="body-1">Знай точну суму, яку можна витратити просто зараз.</strong> Витратив менше сьогодні? Koshtu автоматично додасть зекономлене до твого бюджету на завтра.
+              </p>
+            </div>
+
+            <div class="bento-preview">
+              <div style="display: flex; justify-content: space-between; align-items: baseline; gap: var(--sp-200); flex-wrap: wrap;">
+                <div>
+                  <span class="caption-2 text-secondary" data-i18n="bento1_sub1">Можна витратити сьогодні (Продукти)</span>
+                  <div class="heading-3 mono-num" style="margin-top: var(--sp-50);">645 ₴</div>
+                </div>
+                <div style="text-align: right;">
+                  <span class="caption-2 text-secondary" data-i18n="bento1_sub2">Залишок на 18 днів</span>
+                  <div class="title-2 mono-num" style="margin-top: var(--sp-50);">33 335 ₴</div>
+                </div>
+              </div>
+              <div class="progress-track" aria-hidden="true">
+                <div class="progress-fill-green" style="width: 34%;"></div>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span class="caption-4 text-secondary" data-i18n-html="bento1_sub3">Витрачено сьогодні: <strong class="mono-num">1 278 ₴</strong></span>
+                <span class="caption-4 text-secondary" data-i18n="bento1_sub4">Перераховано щойно</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="bento-card span-4 bg-peach reveal-on-scroll" style="--reveal-delay: 150ms" data-scale-card>
+            <div>
+              <div class="icon-box" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor">
+                  <path d="M224,48H32A16,16,0,0,0,16,64V192a16,16,0,0,0,16,16H224a16,16,0,0,0,16-16V64A16,16,0,0,0,224,48Zm0,16V88H32V64Zm0,128H32V104H224v88Zm-16-24a8,8,0,0,1-8,8H168a8,8,0,0,1,0-16h32A8,8,0,0,1,208,168Zm-64,0a8,8,0,0,1-8,8H120a8,8,0,0,1,0-16h16A8,8,0,0,1,144,168Z"/>
+                </svg>
+              </div>
+              <h3 class="heading-5" style="margin-bottom: var(--sp-100);" data-i18n="bento2_title">
+                Трекер повернення боргів
+              </h3>
+              <p class="body-3" style="color: #1F2937;" data-i18n-html="bento2_desc">
+                <strong class="body-1">Бач, як зменшується борг із кожним платежем.</strong> Контролюй позики й кредити до потрібної дати та закривай їх без зайвого тиску.
+              </p>
+            </div>
+
+            <div class="bento-preview">
+              <div style="display: flex; justify-content: space-between; align-items: center;">
+                <span class="title-3" data-i18n="bento2_name">Петро</span>
+                <span class="title-3 mono-num">$5 000</span>
+              </div>
+              <p class="caption-5 text-secondary" style="margin-top: var(--sp-25);" data-i18n="bento2_date">Повернути до: 05.10.2026</p>
+              <div class="progress-track" aria-hidden="true">
+                <div class="progress-fill-green"></div>
+              </div>
+              <div style="display: flex; justify-content: space-between;">
+                <span class="caption-3 mono-num" data-i18n="bento2_paid">Вже повернуто: $4 731</span>
+                <span class="caption-3 mono-num" data-i18n="bento2_left">Залишилося: $269</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="bento-card span-6 bg-lavender reveal-on-scroll" style="--reveal-delay: 100ms" data-scale-card>
+            <div>
+              <div class="icon-box" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor">
+                  <path d="M208,80H176V56a48,48,0,0,0-96,0V80H48A16,16,0,0,0,32,96V208a16,16,0,0,0,16,16H208a16,16,0,0,0,16-16V96A16,16,0,0,0,208,80ZM96,56a32,32,0,0,1,64,0V80H96ZM208,208H48V96H208V208Zm-68-56a12,12,0,1,1-12-12A12,12,0,0,1,140,152Z"/>
+                </svg>
+              </div>
+              <h3 class="heading-5" style="margin-bottom: var(--sp-100);" data-i18n="bento3_title">
+                100% приватно на твоєму телефоні
+              </h3>
+              <p class="body-3" style="color: #1F2937;" data-i18n-html="bento3_desc">
+                <strong class="body-1">Твої фінанси бачиш лише ти.</strong> Усі бюджети, витрати й борги зберігаються прямо на смартфоні та працюють навіть у літаку чи без зв'язку.
+              </p>
+            </div>
+
+            <div class="bento-preview" style="display: flex; align-items: center; justify-content: space-between; gap: var(--sp-200);">
+              <div>
+                <div class="body-4" data-i18n="bento3_sub1">Зберігається лише на телефоні</div>
+                <div class="caption-2 text-secondary" data-i18n="bento3_sub2">Без реклами та прихованих трекерів</div>
+              </div>
+              <span class="currency-tag is-active caption-3">Offline First</span>
+            </div>
+          </article>
+
+          <article class="bento-card span-6 bg-lime reveal-on-scroll" style="--reveal-delay: 250ms" data-scale-card>
+            <div>
+              <div class="icon-box" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor">
+                  <path d="M184,89.57V84c0-25.08-37.83-44-88-44S8,58.92,8,84v40c0,20.89,26.25,37.49,64,42.46V172c0,25.08,37.83,44,88,44s88-18.92,88-44V132C248,111.3,222.58,94.68,184,89.57ZM96,56c41.15,0,72,14.89,72,28s-30.85,28-72,28S24,97.11,24,84,54.85,56,96,56ZM24,124V106.43C40.79,119.8,66.49,128,96,128s55.21-8.2,72-21.57V124c0,13.11-30.85,28-72,28S24,137.11,24,124Zm136,76c-41.15,0-72-14.89-72-28v-4.15c2.64.1,5.31.15,8,.15,38.22,0,70.85-11.24,83.48-27.88C210.71,143.77,232,155.4,232,166v6C232,185.11,201.15,200,160,200Z"/>
+                </svg>
+              </div>
+              <h3 class="heading-5" style="margin-bottom: var(--sp-100);" data-i18n="bento4_title">
+                5 валют та 12 ніжних кольорів
+              </h3>
+              <p class="body-3" style="color: #1F2937;" data-i18n-html="bento4_desc">
+                <strong class="body-1">Своя валюта й колір для кожної цілі.</strong> Веди продукти у гривнях, відпустку — у доларах чи євро, а щоденні витрати за кордоном — у злотих або фунтах.
+              </p>
+            </div>
+
+            <div class="currency-badges" aria-label="Підтримувані валюти у застосунку">
+              <span class="currency-tag is-active body-4 mono-num">₴ UAH</span>
+              <span class="currency-tag body-4 mono-num">$ USD</span>
+              <span class="currency-tag body-4 mono-num">€ EUR</span>
+              <span class="currency-tag body-4 mono-num">zł PLN</span>
+              <span class="currency-tag body-4 mono-num">£ GBP</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SECTION 6: Privacy & Store Compliance on Soft Lavender Stage -->
+      <section class="story-block" id="privacy-proof">
+        <div class="story-intro reveal-on-scroll" data-parallax="-0.03">
+          <div class="section-eyebrow">
+            <span class="caption-3" data-i18n="priv_eyebrow">Чесна приватність</span>
+          </div>
+          <h2 class="heading-2" data-scroll-compose data-i18n="priv_heading">
+            Твої гроші — це тільки твоя справа
+          </h2>
+          <p class="body-3 text-secondary" data-i18n="priv_desc">
+            Ми не просимо доступ до банківських карток і не стежимо за твоїми покупками. Застосунок повністю відповідає стандартам безпеки Apple App Store та Google Play.
+          </p>
+        </div>
+
+        <div class="color-stage stage-lavender reveal-on-scroll" data-scale-stage>
+          <div class="proof-grid">
+            <article class="proof-card reveal-on-scroll" style="--reveal-delay: 0ms">
+              <div>
+                <div class="title-4 mono-num" style="margin-bottom: var(--sp-100); color: var(--text-secondary);">
+                  01 / На пристрої
+                </div>
+                <h3 class="heading-6" style="margin-bottom: var(--sp-100);" data-i18n="priv1_title">
+                  Усе живе на твоєму смартфоні
+                </h3>
+                <p class="body-3 text-secondary" data-i18n="priv1_desc">
+                  Твої ліміти, витрати й борги зберігаються у пам'яті телефона. Записуй покупки будь-де — навіть без мобільного інтернету чи під час перельоту.
+                </p>
+              </div>
+              <div class="caption-3" data-i18n="priv1_foot">Працює миттєво навіть без мережі</div>
+            </article>
+
+            <article class="proof-card reveal-on-scroll" style="--reveal-delay: 150ms">
+              <div>
+                <div class="title-4 mono-num" style="margin-bottom: var(--sp-100); color: var(--text-secondary);">
+                  02 / Без стеження
+                </div>
+                <h3 class="heading-6" style="margin-bottom: var(--sp-100);" data-i18n="priv2_title">
+                  Жодної реклами чи продажу даних
+                </h3>
+                <p class="body-3 text-secondary" data-i18n="priv2_desc">
+                  У Koshtu немає рекламних банерів чи шпигунських трекерів. А вхід через Apple або Google потрібен лише тоді, коли ти сам захочеш синхронізувати дані між своїми пристроями.
+                </p>
+              </div>
+              <div>
+                <a href="privacy.html" class="button-sm" style="text-decoration: underline;" data-i18n="priv2_link">
+                  Переглянути Політику приватності
+                </a>
+              </div>
+            </article>
+
+            <article class="proof-card reveal-on-scroll" style="--reveal-delay: 300ms">
+              <div>
+                <div class="title-4 mono-num" style="margin-bottom: var(--sp-100); color: var(--text-secondary);">
+                  03 / Повний контроль
+                </div>
+                <h3 class="heading-6" style="margin-bottom: var(--sp-100);" data-i18n="priv3_title">
+                  Видалення даних в один дотик
+                </h3>
+                <p class="body-3 text-secondary" data-i18n="priv3_desc">
+                  Хочеш почати з чистого аркуша або видалити профіль? Стри всі дані за секунду прямо в Налаштуваннях застосунку або через просту форму на сайті.
+                </p>
+              </div>
+              <div>
+                <a href="account-deletion.html" class="button-sm" style="text-decoration: underline;" data-i18n="priv3_link">
+                  Як видалити свої дані
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 7: Centered FAQ -->
+      <section class="story-block faq-section-centered" id="faq">
+        <div class="story-intro reveal-on-scroll" data-parallax="-0.03">
+          <div class="section-eyebrow">
+            <span class="caption-3" data-i18n="faq_eyebrow">Часті питання</span>
+          </div>
+          <h2 class="heading-2" data-scroll-compose data-i18n="faq_heading">
+            Відповідаємо просто і без дрібного шрифту
+          </h2>
+        </div>
+
+        <div class="faq-list reveal-on-scroll" style="--reveal-delay: 150ms">
+          <details class="faq-item" open>
+            <summary class="faq-summary title-2">
+              <span data-i18n="faq1_q">Чи потрібно прив'язувати банківську картку до Koshtu?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor">
+                  <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer body-3" data-i18n="faq1_a">
+              Ні, ми ніколи не просимо доступ до вашого банку чи номерів карток. Ви самі задаєте комфортний бюджет і вносите витрати за дві секунди на головному екрані.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary title-2">
+              <span data-i18n="faq2_q">Що буде, якщо сьогодні я витрачу трохи більше або менше ліміту?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor">
+                  <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer body-3" data-i18n="faq2_a">
+              Жодного стресу: Koshtu миттєво перерахує суму на решту днів. Якщо сьогодні вдалося заощадити — завтра ваш денний ліміт приємно зросте. Якщо витратили більше — застосунок м'яко розподілить різницю на наступні дні, щоб ви спокійно вклалися в місячний план.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary title-2">
+              <span data-i18n="faq3_q">Чи можна користуватися застосунком без реєстрації?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor">
+                  <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer body-3" data-i18n="faq3_a">
+              Так! Одразу після завантаження ви можете працювати в локальному режимі «Гість». Усі ваші бюджети, витрати й борги надійно зберігатимуться прямо у пам'яті смартфона.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary title-2">
+              <span data-i18n="faq4_q">Які валюти підтримує Koshtu?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor">
+                  <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer body-3" data-i18n="faq4_a">
+              Для кожного окремого бюджету чи боргу ви можете обрати свою валюту: гривню (₴ UAH), долар США ($ USD), євро (€ EUR), польський злотий (zł PLN) або британський фунт (£ GBP).
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary title-2">
+              <span data-i18n="faq5_q">Як працює трекер боргів і кредитів?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor">
+                  <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer body-3" data-i18n="faq5_a">
+              У вкладці «Борги» ви додаєте картку з сумою та бажаною датою повернення. Кожен внесений платіж заповнює зелену шкалу прогресу — ви завжди бачите, скільки вже повернули і яка сума залишилася до повної свободи від боргу.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary title-2">
+              <span data-i18n="faq6_q">Чи безкоштовний застосунок Koshtu?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor">
+                  <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer body-3" data-i18n="faq6_a">
+              Ви можете завантажити Koshtu та користуватися базовими функціями безкоштовно. Якщо в майбутньому ви оберете додаткові можливості за підпискою через App Store або Google Play, її можна буде легко скасувати в один дотик у налаштуваннях телефона.
+            </div>
+          </details>
+
+          <details class="faq-item">
+            <summary class="faq-summary title-2">
+              <span data-i18n="faq7_q">Як видалити свій акаунт і всі дані, якщо я більше не користуюся додатком?</span>
+              <span class="faq-icon" aria-hidden="true">
+                <svg width="20" height="20" viewBox="0 0 256 256" fill="currentColor">
+                  <path d="M224,128a8,8,0,0,1-8,8H136v80a8,8,0,0,1-16,0V136H40a8,8,0,0,1,0-16h80V40a8,8,0,0,1,16,0v80h80A8,8,0,0,1,224,128Z"/>
+                </svg>
+              </span>
+            </summary>
+            <div class="faq-answer body-3" data-i18n-html="faq7_a">
+              Ви можете стерти всі записи миттєво прямо в застосунку (Налаштування → «Видалити акаунт та дані») або залишити запит на сторінці <a href="account-deletion.html" style="text-decoration: underline;">Видалення акаунту</a>, якщо вже видалили застосунок зі смартфона.
+            </div>
+          </details>
+        </div>
+      </section>
+
+      <!-- SECTION 8: Final CTA -->
+      <section class="story-block" id="download-cta">
+        <div class="final-cta-box reveal-on-scroll" data-scale-stage>
+          <div class="cta-app-icon" aria-hidden="true">
+            <img src="assets/app-icon.jpg" alt="Koshtu App Icon" width="84" height="84" />
+          </div>
+          <h2 class="heading-2" style="max-width: 680px;" data-scroll-compose data-i18n="cta_heading">
+            Спробуй Koshtu безкоштовно — і витрачай зі спокійною душею
+          </h2>
+
+          <p class="title-2" style="max-width: 600px; color: #1F2937;" data-i18n="cta_desc">
+            Завантаж застосунок для iOS або Android, створи свій перший бюджет за 30 секунд і відчуй спокій за власні гроші.
+          </p>
+
+          <div class="store-badges-row" style="justify-content: center;">
+            <a href="#download-cta" class="store-badge">
+              <svg width="24" height="24" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                <path d="M128.23,40A40.06,40.06,0,0,1,168,0a8,8,0,0,1,8,8,40.06,40.06,0,0,1-39.77,40,8,8,0,0,1-8-8ZM215.13,182.84c-8.69,20.36-25.87,57.16-49.76,57.16-12.56,0-18.89-4.14-24.47-7.79-5.25-3.43-9.8-6.41-17.9-6.41-7.82,0-12.42,3-17.75,6.49-5.57,3.64-11.89,7.71-24.15,7.71-22.25,0-41.15-39.11-49.26-62.18-10.17-28.91-8.52-58.13,4.41-78.18A62.08,62.08,0,0,1,90,69.76c12.06,0,19.72,3.88,25.88,7,5.23,2.65,9.36,4.74,13.66,4.74,3.87,0,7.84-2,13.06-4.7,6.29-3.22,14.12-7.23,26.15-7.23a60.35,60.35,0,0,1,51.67,28.76,7.92,7.92,0,0,1-2.55,11.27c-12.92,7.57-20.51,20.89-19.83,34.77.72,14.66,9.54,27.18,23,33.47A8,8,0,0,1,215.13,182.84Z"/>
+              </svg>
+              <div class="store-badge-meta">
+                <span class="caption-5" style="opacity: 0.8;" data-i18n="badge_apple_top">Завантажити в</span>
+                <span class="button-sm">App Store</span>
+              </div>
+            </a>
+
+            <a href="#download-cta" class="store-badge">
+              <svg width="24" height="24" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                <path d="M223.86,114.13,55.82,18.1A16,16,0,0,0,32,32V224a16,16,0,0,0,23.82,13.9l168.04-96a16,16,0,0,0,0-27.77ZM48,208.58V47.42L146.51,128Zm111.41-69.7L66.85,214.44,180.58,149.45ZM66.85,41.56,180.58,106.55l-21.17,12.57Z"/>
+              </svg>
+              <div class="store-badge-meta">
+                <span class="caption-5" style="opacity: 0.8;" data-i18n="badge_google_top">Завантажити в</span>
+                <span class="button-sm">Google Play</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- FOOTER WITH LEGAL LINKS -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-inner">
+        <div class="footer-brand-copy">
+          <span class="footer-app-icon" aria-hidden="true">
+            <img src="assets/app-icon.jpg" alt="" width="26" height="26" />
+          </span>
+          <span class="caption-1 text-secondary" data-i18n="footer_copy">© 2026 Koshtu.app. Всі права захищені.</span>
+        </div>
+
+        <div class="footer-socials" aria-label="Соціальні мережі">
+          <a href="#" class="social-circle-link" aria-label="Instagram" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+              <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+              <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+            </svg>
+          </a>
+          <a href="#" class="social-circle-link" aria-label="Threads" target="_blank" rel="noopener noreferrer">
+            <svg width="18" height="18" viewBox="0 0 192 192" fill="currentColor" aria-hidden="true">
+              <path d="M141.537 88.9883C140.71 88.5919 139.87 88.2109 139.019 87.8451C137.537 60.5382 122.616 44.905 97.4619 44.905C71.3934 44.905 53.0786 63.8824 53.0786 93.6335C53.0786 123.639 71.4984 142.457 98.0561 142.457C118.887 142.457 133.407 131.782 138.804 114.921H118.423C114.398 123.774 105.748 127.426 97.5252 127.426C80.3708 127.426 69.9678 114.471 69.9678 93.3769C69.9678 72.8256 80.5284 60.108 97.5252 60.108C113.885 60.108 121.788 71.9392 122.955 89.2811C107.037 87.5283 93.0232 90.7303 84.1868 98.7188C76.2486 105.894 72.5833 115.178 74.3218 123.774C76.5165 134.629 86.8279 140.767 98.3976 140.767C113.238 140.767 122.928 132.84 125.797 121.378C127.659 121.728 129.544 121.905 131.442 121.905C148.972 121.905 159 110.871 159 92.8315C159 91.536 158.949 90.2503 158.847 88.9772C154.214 88.2346 148.149 88.0645 141.537 88.9883ZM98.7065 125.59C90.2825 125.59 86.4859 120.468 85.8082 115.342C85.1278 110.188 87.9745 104.912 94.6185 101.405C99.6455 98.751 106.772 97.5283 118.069 98.6678C117.159 116.143 110.283 125.59 98.7065 125.59Z"/>
+            </svg>
+          </a>
+          <a href="#" class="social-circle-link" aria-label="X (Twitter)" target="_blank" rel="noopener noreferrer">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+            </svg>
+          </a>
+        </div>
+
+        <ul class="footer-links">
+          <li><a href="privacy.html" class="footer-link caption-1" data-i18n="footer_privacy">Політика конфіденційності</a></li>
+          <li><a href="terms.html" class="footer-link caption-1" data-i18n="footer_terms">Умови використання та підтримка</a></li>
+          <li><a href="account-deletion.html" class="footer-link caption-1" data-i18n="footer_deletion">Видалення акаунту</a></li>
+        </ul>
+      </div>
+    </div>
+  </footer>
+
+  <script src="app.js?v=20261105e"></script>
+</body>
+</html>
