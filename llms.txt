@@ -1,0 +1,32 @@
+# Koshtu (Кошту)
+
+> Koshtu is a private, minimalist mobile expense tracker and debt payoff application for iOS and Android. It calculates a dynamic safe daily spending allowance and helps users systematically eliminate debt with 100% offline on-device storage (no bank account linking required).
+
+## Key Information
+- **Application Name**: Koshtu (Кошту)
+- **Primary Domain**: https://www.koshtu.online
+- **Platforms**: iOS (Apple App Store), Android (Google Play)
+- **Category**: Personal Finance / Expense Tracking / Debt Payoff
+- **Pricing**: Free to download / Freemium
+- **Privacy Model**: 100% Offline, Local Storage on device (AsyncStorage). Zero server tracking, no bank credentials or transaction syncing required.
+- **Creator & Developer**: Eugen Kovalchuk (https://www.eugenkovalchuk.online)
+- **Contact Email**: eugen.bistrosite@gmail.com
+
+## Core Value Proposition & Features
+- **Daily Safe Allowance (Щоденний ліміт)**: Automatically calculates how much the user can safely spend today based on the remaining budget and cycle days. Dynamically updates with every transaction.
+- **Debt Payoff Tracker (Контроль та повернення боргів)**: Structured debt elimination tool showing total debt, amount repaid, remaining balance, and visual progress indicators for each creditor.
+- **Lightning-Fast Expense Entry (Швидке внесення за 2 секунди)**: Custom built-in numeric calculator keypad eliminates keyboard lag and allows logging expenses in two taps.
+- **Multi-Currency Support (Мультивалютність)**: Native support for Ukrainian Hryvnia (₴), US Dollar ($), Euro (€), Polish Zloty (zł), and British Pound (£).
+- **Zero Banking Risk**: Does not connect to banking APIs or read SMS, providing complete financial confidentiality.
+
+## Key Pages & Resources
+- [Home Page](https://www.koshtu.online/): Official landing page, live mobile app preview, interactive demo, and download links.
+- [About the Developer](https://www.koshtu.online/about): Background, philosophy, and portfolio of creator Eugen Kovalchuk.
+- [Privacy Policy](https://www.koshtu.online/privacy): Complete privacy and offline data retention policy.
+- [Terms & Support](https://www.koshtu.online/terms): Terms of use, subscription management, and user support contact.
+- [Account Deletion](https://www.koshtu.online/account-deletion): Instructions for instant local data wipe or account management.
+
+## Target Audience
+- Individuals looking to stop living paycheck to paycheck by knowing their exact daily limit.
+- Users who want to pay off consumer debts, personal loans, or credit cards systematically.
+- Privacy-conscious people who refuse to share open banking access or bank credentials with third-party servers.
