@@ -80,6 +80,7 @@ html {
   -webkit-text-size-adjust: 100%;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
 }
 
 body {
@@ -380,6 +381,16 @@ p, li, dd, blockquote,
   }
 }
 
+/* Anchor targets scroll clearance for sticky floating navbar */
+#live-sandbox,
+#user-journey,
+#benefits,
+#privacy-proof,
+#faq,
+#download-cta {
+  scroll-margin-top: 88px;
+}
+
 /* ==========================================================================
    B7. Floating Top Navigation Bar (with "Delete Account" button)
    ========================================================================== */
@@ -633,17 +644,18 @@ p, li, dd, blockquote,
   position: fixed;
   inset: 0;
   z-index: 95;
-  background-color: rgba(255, 255, 255, 0.96);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  padding: var(--sp-900) var(--sp-300) var(--sp-500);
+  background-color: rgba(255, 255, 255, 0.98);
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  padding: calc(var(--sp-800) + 16px) var(--sp-300) var(--sp-400);
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
   opacity: 0;
   pointer-events: none;
-  transform: translateY(-16px);
-  transition: opacity 500ms var(--ease-out-weighted), transform 500ms var(--ease-out-weighted);
+  transform: translateY(-12px);
+  transition: opacity 350ms var(--ease-out-weighted), transform 350ms var(--ease-out-weighted);
 }
 
 .mobile-menu.is-open {
@@ -656,13 +668,13 @@ p, li, dd, blockquote,
   list-style: none;
   display: flex;
   flex-direction: column;
-  gap: var(--sp-300);
+  gap: var(--sp-200);
 }
 
 .mobile-menu-item {
   opacity: 0;
-  transform: translateY(var(--sp-300));
-  transition: opacity 500ms var(--ease-out-weighted), transform 500ms var(--ease-out-weighted);
+  transform: translateY(var(--sp-200));
+  transition: opacity 400ms var(--ease-out-weighted), transform 400ms var(--ease-out-weighted);
 }
 
 .mobile-menu.is-open .mobile-menu-item {
@@ -670,20 +682,71 @@ p, li, dd, blockquote,
   transform: translateY(0);
 }
 
-.mobile-menu.is-open .mobile-menu-item:nth-child(1) { transition-delay: 60ms; }
-.mobile-menu.is-open .mobile-menu-item:nth-child(2) { transition-delay: 120ms; }
-.mobile-menu.is-open .mobile-menu-item:nth-child(3) { transition-delay: 180ms; }
-.mobile-menu.is-open .mobile-menu-item:nth-child(4) { transition-delay: 240ms; }
-.mobile-menu.is-open .mobile-menu-item:nth-child(5) { transition-delay: 300ms; }
-.mobile-menu.is-open .mobile-menu-item:nth-child(6) { transition-delay: 360ms; }
+.mobile-menu.is-open .mobile-menu-item:nth-child(1) { transition-delay: 40ms; }
+.mobile-menu.is-open .mobile-menu-item:nth-child(2) { transition-delay: 80ms; }
+.mobile-menu.is-open .mobile-menu-item:nth-child(3) { transition-delay: 120ms; }
+.mobile-menu.is-open .mobile-menu-item:nth-child(4) { transition-delay: 160ms; }
+.mobile-menu.is-open .mobile-menu-item:nth-child(5) { transition-delay: 200ms; }
+.mobile-menu.is-open .mobile-menu-item:nth-child(6) { transition-delay: 240ms; }
 
-@media (max-width: 980px) {
+.mobile-menu-cta {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  gap: var(--sp-100);
+  padding-top: var(--sp-300);
+  flex-shrink: 0;
+}
+
+@media (max-width: 1080px) {
   .nav-links,
   .nav-cta-desktop {
     display: none;
   }
   .menu-toggle {
     display: inline-flex;
+  }
+}
+
+@media (max-width: 767px) {
+  .nav-wrapper {
+    top: 12px;
+    padding-left: 12px;
+    padding-right: 12px;
+  }
+
+  .floating-nav {
+    padding: 6px 10px 6px 12px;
+    gap: 8px;
+  }
+
+  .brand-link {
+    margin-right: 0;
+    gap: 8px;
+  }
+
+  .brand-mark {
+    width: 36px;
+    height: 36px;
+  }
+
+  .brand-link .title-3 {
+    font-size: 0.9375rem;
+  }
+
+  .nav-actions {
+    gap: 8px;
+  }
+
+  .lang-circle-btn {
+    width: 32px;
+    height: 32px;
+  }
+
+  .menu-toggle {
+    width: 38px;
+    height: 38px;
+    flex-shrink: 0;
   }
 }
 
@@ -1774,6 +1837,20 @@ p, li, dd, blockquote,
 
 .footer-link:hover {
   color: var(--text-dark);
+}
+
+@media (max-width: 639px) {
+  .footer-inner {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: var(--sp-200);
+  }
+
+  .footer-links {
+    justify-content: center;
+    gap: var(--sp-200);
+  }
 }
 
 /* Legal Document Pages */
