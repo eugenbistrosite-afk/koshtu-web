@@ -4,49 +4,124 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Koshtu — Твій щоденний ліміт та контроль боргів без стресу</title>
-  <meta name="description" content="Koshtu автоматично вираховує безпечну суму витрат на сьогодні та допомагає закривати борги швидше. Всі фінансові записи зберігаються локально на твоєму смартфоні." />
+  <meta name="description" content="Koshtu автоматично вираховує безпечну суму витрат на сьогодні та допомагає закривати борги швидше. 100% локальне збереження без передачі банківських даних." />
+  <meta name="keywords" content="трекер витрат, щоденний ліміт, повернення боргів, облік фінансів, контроль витрат, бюджет на сьогодні, приватний фінансовий трекер, expense tracker, daily allowance, debt payoff" />
+  <meta name="author" content="Eugen Kovalchuk" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+
+  <!-- Canonical & Alternate Multi-language Links -->
+  <link rel="canonical" href="https://www.koshtu.online/" />
+  <link rel="alternate" hreflang="uk" href="https://www.koshtu.online/?lang=uk" />
+  <link rel="alternate" hreflang="en" href="https://www.koshtu.online/?lang=en" />
+  <link rel="alternate" hreflang="x-default" href="https://www.koshtu.online/" />
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="https://www.koshtu.online/" />
+  <meta property="og:site_name" content="Koshtu.app" />
+  <meta property="og:locale" content="uk_UA" />
+  <meta property="og:locale:alternate" content="en_US" />
   <meta property="og:title" content="Koshtu — Твій щоденний ліміт під контролем" />
   <meta property="og:description" content="Персональний трекер денних лімітів і калькулятор повернення боргів з повною приватністю на пристрої." />
-  <meta property="og:type" content="website" />
-  <meta property="og:image" content="assets/mockup-daily-trio.jpg" />
+  <meta property="og:image" content="https://www.koshtu.online/assets/hero-mockup.jpg" />
+  <meta property="og:image:width" content="1024" />
+  <meta property="og:image:height" content="1024" />
+  <meta property="og:image:alt" content="Інтерфейс застосунку Koshtu на екрані смартфона" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="https://www.koshtu.online/" />
+  <meta name="twitter:title" content="Koshtu — Твій щоденний ліміт під контролем" />
+  <meta name="twitter:description" content="Персональний трекер денних лімітів і калькулятор повернення боргів з повною приватністю на пристрої." />
+  <meta name="twitter:image" content="https://www.koshtu.online/assets/hero-mockup.jpg" />
+
   <link rel="icon" type="image/png" href="assets/app-icon.png" />
   <link rel="apple-touch-icon" href="assets/app-icon.png" />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261105e" />
+  <link rel="stylesheet" href="styles.css?v=20261106a" />
+
+  <!-- Structured Data: WebSite, SoftwareApplication, FAQPage -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
-    "@type": "FAQPage",
-    "mainEntity": [
+    "@graph": [
       {
-        "@type": "Question",
-        "name": "Чи потрібно прив'язувати банківську картку до Koshtu?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Ні. Koshtu не запитує банківські реквізити чи доступ до рахунків. Ви вводите суму бюджету та витрати вручну за дві секунди через вбудовану клавіатуру."
+        "@type": "WebSite",
+        "@id": "https://www.koshtu.online/#website",
+        "url": "https://www.koshtu.online/",
+        "name": "Koshtu",
+        "description": "Персональний трекер денних лімітів і калькулятор повернення боргів з повною приватністю на пристрої.",
+        "inLanguage": ["uk", "en"],
+        "publisher": {
+          "@type": "Person",
+          "name": "Eugen Kovalchuk",
+          "url": "https://www.eugenkovalchuk.online"
         }
       },
       {
-        "@type": "Question",
-        "name": "Де зберігаються мої фінансові записи та суми боргів?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Усі ліміти, витрати та записи про борги зберігаються локально у внутрішній пам'яті вашого смартфона (AsyncStorage) без передачі на сторонні аналітичні чи рекламні сервери."
+        "@type": "SoftwareApplication",
+        "@id": "https://www.koshtu.online/#app",
+        "name": "Koshtu",
+        "applicationCategory": "FinanceApplication",
+        "operatingSystem": "iOS, Android",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "description": "Персональний трекер денних лімітів і калькулятор повернення боргів з повною приватністю на пристрої.",
+        "author": {
+          "@type": "Person",
+          "name": "Eugen Kovalchuk",
+          "url": "https://www.eugenkovalchuk.online"
         }
       },
       {
-        "@type": "Question",
-        "name": "Як розраховується безпечний залишок на сьогодні?",
-        "acceptedAnswer": {
-          "@type": "Answer",
-          "text": "Ви задаєте загальний бюджет (наприклад, 35 000 ₴ на продукти) і тривалість у днях. Кожного дня Koshtu ділить доступний залишок на кількість днів, що залишилися, та миттєво оновлює денну норму після кожної витрати або доходу."
-        }
+        "@type": "FAQPage",
+        "@id": "https://www.koshtu.online/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Чи потрібно прив'язувати банківську картку до Koshtu?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ні. Koshtu не запитує банківські реквізити чи доступ до рахунків. Ви вводите суму бюджету та витрати вручну за дві секунди через вбудовану клавіатуру."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Де зберігаються мої фінансові записи та суми боргів?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Усі ліміти, витрати та записи про борги зберігаються локально у внутрішній пам'яті вашого смартфона (AsyncStorage) без передачі на сторонні аналітичні чи рекламні сервери."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Як розраховується безпечний залишок на сьогодні?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Ви задаєте загальний бюджет (наприклад, 35 000 ₴ на продукти) і тривалість у днях. Кожного дня Koshtu ділить доступний залишок на кількість днів, що залишилися, та миттєво оновлює денну норму після кожної витрати або доходу."
+            }
+          }
+        ]
       }
     ]
   }
   </script>
+
+  <!-- Google tag (gtag.js) - Google Analytics -->
+  <!-- Розкоментуйте та вкажіть ваш ID (наприклад G-XXXXXXXXXX) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-TRACKING_ID"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-TRACKING_ID');
+  </script>
+
   <!-- Vercel Web Analytics & Speed Insights -->
   <script>
     window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };

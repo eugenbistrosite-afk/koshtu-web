@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  <url>
+    <loc>https://www.koshtu.online/</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.koshtu.online/?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koshtu.online/?lang=en"/>
+  </url>
+  <url>
+    <loc>https://www.koshtu.online/about</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.koshtu.online/about?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koshtu.online/about?lang=en"/>
+  </url>
+  <url>
+    <loc>https://www.koshtu.online/privacy</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.koshtu.online/privacy?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koshtu.online/privacy?lang=en"/>
+  </url>
+  <url>
+    <loc>https://www.koshtu.online/terms</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.5</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.koshtu.online/terms?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koshtu.online/terms?lang=en"/>
+  </url>
+  <url>
+    <loc>https://www.koshtu.online/account-deletion</loc>
+    <lastmod>2026-11-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.4</priority>
+    <xhtml:link rel="alternate" hreflang="uk" href="https://www.koshtu.online/account-deletion?lang=uk"/>
+    <xhtml:link rel="alternate" hreflang="en" href="https://www.koshtu.online/account-deletion?lang=en"/>
+  </url>
+</urlset>
