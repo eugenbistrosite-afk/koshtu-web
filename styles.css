@@ -703,7 +703,7 @@ p, li, dd, blockquote,
   flex-shrink: 0;
 }
 
-@media (max-width: 1080px) {
+@media (max-width: 1120px) {
   .nav-links,
   .nav-cta-desktop {
     display: none;
