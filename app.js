@@ -172,9 +172,40 @@
       badge_apple_top: 'Завантажити в',
       badge_google_top: 'Завантажити в',
       footer_copy: '© 2026 Koshtu.app. Всі права захищені.',
+      footer_about: 'Про розробника',
       footer_privacy: 'Політика конфіденційності',
       footer_terms: 'Умови використання та підтримка',
       footer_deletion: 'Видалення акаунту',
+
+      /* About Developer Page */
+      about_badge: 'Creator & Software Engineer',
+      about_title: 'Про розробника Koshtu',
+      about_subtitle:
+        "Хто стоїть за створенням застосунку, чому Koshtu побудований саме так і як зв'язатися з автором.",
+      about_creator_role: 'Творець та інженер застосунку',
+      about_name: 'Євген Ковальчук',
+      about_tagline: 'Software Engineer & Product Builder',
+      about_bio_p1:
+        "Привіт! Я створив Koshtu, тому що сам втомився від громіздких фінансових додатків. Більшість із них викликають тривогу: десятки заплутаних категорій, обов'язкове прив'язування банківських карток та передача приватних витрат третім особам.",
+      about_bio_p2:
+        'Моєю метою було зробити застосунок, який дарує спокій: одну чесну цифру «безпечного ліміту на сьогодні», легкий трекер для швидкого закриття боргів та 100% збереження всіх даних локально у вашому смартфоні.',
+      about_principles_eyebrow: 'Принципи створення',
+      about_principles_title: 'Чим Koshtu відрізняється від інших',
+      about_card1_title: '100% локальна приватність',
+      about_card1_desc:
+        "Жодних банківських логінів, жодних рекламних трекерів. Ваші фінансові записи належать тільки вам і зберігаються лише у пам'яті вашого смартфона.",
+      about_card1_foot: 'Працює навіть без інтернету',
+      about_card2_title: 'Фокус на сьогодні',
+      about_card2_desc:
+        'Складна статистика за минулий місяць не рятує від сьогоднішніх перевитрат. Знання однієї точної суми на день рятує щоразу.',
+      about_card2_foot: 'Спокій за власний бюджет',
+      about_card3_title: "Прямий зв'язок з автором",
+      about_card3_desc:
+        'Я власноруч розробляю застосунок і особисто читаю кожен лист та відгук. Ваші побажання стають новими функціями без бюрократії.',
+      about_card3_foot: 'Відповідаю на кожен лист',
+      about_cta_heading: 'Спробуйте спокійний підхід до фінансів',
+      about_cta_desc:
+        'Встановіть Koshtu на свій iPhone або Android та відчуйте, як це — витрачати гроші без тривоги.',
 
       /* Legal pages */
       pp_updated: 'Оновлено: Листопад 2026 року',
@@ -240,7 +271,7 @@
       del_m2_badge: 'Спосіб 2 · Якщо ви вже видалили застосунок',
       del_m2_title: 'Видалення через форму на сайті',
       del_m2_p1:
-        'Якщо ви входили через Apple або Google, але вже видалили Koshtu зі смартфона, просто вкажіть пошту вашого акаунту нижче або напишіть на <a href="mailto:support@koshtu.app?subject=Account%20Deletion%20Request" class="mono-num" style="text-decoration: underline; color: var(--text-dark);">support@koshtu.app</a>.',
+        'Якщо ви входили через Apple або Google, але вже видалили Koshtu зі смартфона, просто вкажіть пошту вашого акаунту нижче або напишіть на <a href="mailto:eugen.bistrosite@gmail.com?subject=Account%20Deletion%20Request" class="mono-num" style="text-decoration: underline; color: var(--text-dark);">eugen.bistrosite@gmail.com</a>.',
       del_m2_p2:
         "Ми повністю видалимо ваш профіль та всі пов'язані дані протягом <strong>48 годин</strong> і надішлемо вам підтвердження.",
       del_email_label: 'Пошта вашого акаунту (Sign in with Apple / Google)',
@@ -427,9 +458,40 @@
       badge_apple_top: 'Download on the',
       badge_google_top: 'Get it on',
       footer_copy: '© 2026 Koshtu.app. All rights reserved.',
+      footer_about: 'About Developer',
       footer_privacy: 'Privacy Policy',
       footer_terms: 'Terms of Use & Support',
       footer_deletion: 'Account Deletion',
+
+      /* About Developer Page */
+      about_badge: 'Creator & Software Engineer',
+      about_title: 'About Koshtu Developer',
+      about_subtitle:
+        'The creator behind the app, why Koshtu was built this way, and how to reach out.',
+      about_creator_role: 'App Creator & Engineer',
+      about_name: 'Eugen Kovalchuk',
+      about_tagline: 'Software Engineer & Product Builder',
+      about_bio_p1:
+        'Hi! I created Koshtu because I was tired of bloated, anxiety-inducing finance apps with dozens of confusing categories, mandatory bank connections, and selling personal spending habits.',
+      about_bio_p2:
+        'My goal was to craft an app that brings calm: one honest "safe daily limit" number, an effortless payoff tracker, and 100% local-first data storage right on your smartphone.',
+      about_principles_eyebrow: 'Core Principles',
+      about_principles_title: 'How Koshtu Stands Apart',
+      about_card1_title: '100% Local Privacy',
+      about_card1_desc:
+        'No bank logins, no ad trackers. Your financial records belong solely to you and stay securely in your phone storage.',
+      about_card1_foot: 'Works seamlessly offline',
+      about_card2_title: 'Focus on Today',
+      about_card2_desc:
+        'Complex retrospective charts don’t prevent overspending today. Knowing one exact daily allowance does.',
+      about_card2_foot: 'Budget peace of mind',
+      about_card3_title: 'Direct Line to Developer',
+      about_card3_desc:
+        'I build this app solo and personally read every email and message. Your feedback shapes new features directly without red tape.',
+      about_card3_foot: 'I answer every message',
+      about_cta_heading: 'Experience Calm Personal Finance',
+      about_cta_desc:
+        'Install Koshtu on your iPhone or Android and experience what it feels like to spend money stress-free.',
 
       /* Legal pages */
       pp_updated: 'Updated: November 2026',
@@ -494,7 +556,7 @@
       del_m2_badge: 'Method 2 · If you already deleted the app',
       del_m2_title: 'Deletion request via website',
       del_m2_p1:
-        'If you signed in with Apple or Google and already deleted Koshtu from your phone, simply enter your account email below or write to <a href="mailto:support@koshtu.app?subject=Account%20Deletion%20Request" class="mono-num" style="text-decoration: underline; color: var(--text-dark);">support@koshtu.app</a>.',
+        'If you signed in with Apple or Google and already deleted Koshtu from your phone, simply enter your account email below or write to <a href="mailto:eugen.bistrosite@gmail.com?subject=Account%20Deletion%20Request" class="mono-num" style="text-decoration: underline; color: var(--text-dark);">eugen.bistrosite@gmail.com</a>.',
       del_m2_p2:
         'We will permanently delete your profile and all associated records within <strong>48 hours</strong> and send you a confirmation.',
       del_email_label: 'Your account email (Sign in with Apple / Google)',
