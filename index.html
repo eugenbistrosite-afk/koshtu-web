@@ -41,7 +41,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261106a" />
+  <link rel="stylesheet" href="styles.css?v=20261114a" />
 
   <!-- Structured Data: WebSite, SoftwareApplication, FAQPage -->
   <script type="application/ld+json">
@@ -156,10 +156,8 @@
         <li><a href="#live-sandbox" class="nav-link title-4" data-i18n="nav_calc">Калькулятор</a></li>
         <li><a href="#user-journey" class="nav-link title-4" data-i18n="nav_how">Як працює</a></li>
         <li><a href="#benefits" class="nav-link title-4" data-i18n="nav_benefits">Переваги</a></li>
-        <li><a href="#privacy-proof" class="nav-link title-4" data-i18n="nav_privacy">Приватність</a></li>
         <li><a href="#faq" class="nav-link title-4" data-i18n="nav_faq">Питання</a></li>
-        <li><a href="account-deletion.html" class="nav-link title-4" data-i18n="nav_delete">Видалити дані</a></li>
-        <li><a href="about.html" class="nav-link title-4" data-i18n="nav_about">Про розробника</a></li>
+        <li><a href="about.html" class="nav-link title-4" data-i18n="nav_info">Про проєкт</a></li>
       </ul>
 
       <div class="nav-actions">
@@ -172,17 +170,8 @@
           aria-label="Switch to English"
           title="Switch to English"
         >
-          <svg class="lang-circle-flag lang-circle-flag-uk" viewBox="0 0 32 32" aria-hidden="true">
-            <rect width="32" height="16" fill="#0057B7" />
-            <rect y="16" width="32" height="16" fill="#FFD700" />
-          </svg>
-          <svg class="lang-circle-flag lang-circle-flag-en" viewBox="0 0 32 32" aria-hidden="true">
-            <rect width="32" height="32" fill="#012169" />
-            <path d="M0,0 L32,32 M32,0 L0,32" stroke="#FFFFFF" stroke-width="5" />
-            <path d="M0,0 L32,32 M32,0 L0,32" stroke="#C8102E" stroke-width="2.8" />
-            <path d="M16,0 V32 M0,16 H32" stroke="#FFFFFF" stroke-width="8" />
-            <path d="M16,0 V32 M0,16 H32" stroke="#C8102E" stroke-width="4.8" />
-          </svg>
+          <span class="lang-label lang-label-en">EN</span>
+          <span class="lang-label lang-label-ua">UA</span>
         </button>
 
         <a href="#download-cta" class="btn btn-nav-illustrative button-sm nav-cta-desktop" data-i18n="nav_cta">Спробувати</a>
@@ -207,12 +196,10 @@
       <li class="mobile-menu-item"><a href="#live-sandbox" class="heading-4" data-i18n="nav_calc">Калькулятор</a></li>
       <li class="mobile-menu-item"><a href="#user-journey" class="heading-4" data-i18n="nav_how">Як працює</a></li>
       <li class="mobile-menu-item"><a href="#benefits" class="heading-4" data-i18n="nav_benefits">Переваги</a></li>
-      <li class="mobile-menu-item"><a href="#privacy-proof" class="heading-4" data-i18n="nav_privacy">Приватність</a></li>
       <li class="mobile-menu-item"><a href="#faq" class="heading-4" data-i18n="nav_faq">Питання</a></li>
-      <li class="mobile-menu-item"><a href="about.html" class="heading-4" data-i18n="footer_about">Про розробника</a></li>
+      <li class="mobile-menu-item"><a href="about.html" class="heading-4" data-i18n="nav_info">Про проєкт</a></li>
     </ul>
     <div class="mobile-menu-cta">
-      <a href="account-deletion.html" class="btn btn-ghost-danger button-md" style="width: 100%;" data-i18n="nav_delete">Видалити дані</a>
       <a href="#download-cta" class="btn btn-primary button-md" style="width: 100%;" data-i18n="nav_cta">Спробувати</a>
     </div>
   </div>
@@ -367,7 +354,7 @@
               />
             </div>
             <div class="currency-badges">
-              <span class="currency-tag is-active caption-3" data-i18n="step1_tag1">1 · Перший бюджет</span>
+              <span class="currency-tag caption-3" data-i18n="step1_tag1">1 · Перший бюджет</span>
               <span class="currency-tag caption-3" data-i18n="step1_tag2">2 · Витрати за 2 секунди</span>
               <span class="currency-tag caption-3" data-i18n="step1_tag3">3 · Сума на сьогодні</span>
               <span class="currency-tag caption-3" data-i18n="step1_tag4">4 · Історія та скасування</span>
@@ -397,7 +384,7 @@
               />
             </div>
             <div class="currency-badges" aria-label="Підтримувані валюти у застосунку">
-              <span class="currency-tag is-active body-4 mono-num">₴ UAH</span>
+              <span class="currency-tag body-4 mono-num">₴ UAH</span>
               <span class="currency-tag body-4 mono-num">$ USD</span>
               <span class="currency-tag body-4 mono-num">€ EUR</span>
               <span class="currency-tag body-4 mono-num">zł PLN</span>
@@ -428,7 +415,7 @@
               />
             </div>
             <div class="currency-badges">
-              <span class="currency-tag is-active caption-3" data-i18n="step3_tag1">Режим «Гість» без реєстрації</span>
+              <span class="currency-tag caption-3" data-i18n="step3_tag1">Режим «Гість» без реєстрації</span>
               <span class="currency-tag caption-3" data-i18n="step3_tag2">Світла, темна й системна теми</span>
               <span class="currency-tag caption-3" data-i18n="step3_tag3">Наочний прогрес закриття боргу</span>
             </div>
@@ -554,7 +541,7 @@
                 <div class="body-4" data-i18n="bento3_sub1">Зберігається лише на телефоні</div>
                 <div class="caption-2 text-secondary" data-i18n="bento3_sub2">Без реклами та прихованих трекерів</div>
               </div>
-              <span class="currency-tag is-active caption-3">Offline First</span>
+              <span class="currency-tag caption-3">Offline First</span>
             </div>
           </article>
 
@@ -574,7 +561,7 @@
             </div>
 
             <div class="currency-badges" aria-label="Підтримувані валюти у застосунку">
-              <span class="currency-tag is-active body-4 mono-num">₴ UAH</span>
+              <span class="currency-tag body-4 mono-num">₴ UAH</span>
               <span class="currency-tag body-4 mono-num">$ USD</span>
               <span class="currency-tag body-4 mono-num">€ EUR</span>
               <span class="currency-tag body-4 mono-num">zł PLN</span>
@@ -656,7 +643,45 @@
         </div>
       </section>
 
-      <!-- SECTION 7: Centered FAQ -->
+      <!-- SECTION 7: Final CTA -->
+      <section class="story-block" id="download-cta">
+        <div class="final-cta-box reveal-on-scroll" data-scale-stage>
+          <div class="cta-app-icon" aria-hidden="true">
+            <img src="assets/app-icon.png" alt="Koshtu App Icon" width="84" height="84" />
+          </div>
+          <h2 class="heading-2" style="max-width: 680px;" data-scroll-compose data-i18n="cta_heading">
+            Спробуй Koshtu безкоштовно — і витрачай зі спокійною душею
+          </h2>
+
+          <p class="title-2" style="max-width: 600px; color: #1F2937;" data-i18n="cta_desc">
+            Завантаж застосунок для iOS або Android, створи свій перший бюджет за 30 секунд і відчуй спокій за власні гроші.
+          </p>
+
+          <div class="store-badges-row" style="justify-content: center;">
+            <a href="#download-cta" class="store-badge">
+              <svg width="24" height="24" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                <path d="M128.23,40A40.06,40.06,0,0,1,168,0a8,8,0,0,1,8,8,40.06,40.06,0,0,1-39.77,40,8,8,0,0,1-8-8ZM215.13,182.84c-8.69,20.36-25.87,57.16-49.76,57.16-12.56,0-18.89-4.14-24.47-7.79-5.25-3.43-9.8-6.41-17.9-6.41-7.82,0-12.42,3-17.75,6.49-5.57,3.64-11.89,7.71-24.15,7.71-22.25,0-41.15-39.11-49.26-62.18-10.17-28.91-8.52-58.13,4.41-78.18A62.08,62.08,0,0,1,90,69.76c12.06,0,19.72,3.88,25.88,7,5.23,2.65,9.36,4.74,13.66,4.74,3.87,0,7.84-2,13.06-4.7,6.29-3.22,14.12-7.23,26.15-7.23a60.35,60.35,0,0,1,51.67,28.76,7.92,7.92,0,0,1-2.55,11.27c-12.92,7.57-20.51,20.89-19.83,34.77.72,14.66,9.54,27.18,23,33.47A8,8,0,0,1,215.13,182.84Z"/>
+              </svg>
+              <div class="store-badge-meta">
+                <span class="caption-5" style="opacity: 0.8;" data-i18n="badge_apple_top">Завантажити в</span>
+                <span class="button-sm">App Store</span>
+              </div>
+            </a>
+
+            <a href="#download-cta" class="store-badge">
+              <svg width="24" height="24" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
+                <path d="M223.86,114.13,55.82,18.1A16,16,0,0,0,32,32V224a16,16,0,0,0,23.82,13.9l168.04-96a16,16,0,0,0,0-27.77ZM48,208.58V47.42L146.51,128Zm111.41-69.7L66.85,214.44,180.58,149.45ZM66.85,41.56,180.58,106.55l-21.17,12.57Z"/>
+              </svg>
+              <div class="store-badge-meta">
+                <span class="caption-5" style="opacity: 0.8;" data-i18n="badge_google_top">Завантажити в</span>
+                <span class="button-sm">Google Play</span>
+              </div>
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 8: Centered FAQ -->
       <section class="story-block faq-section-centered" id="faq">
         <div class="story-intro reveal-on-scroll" data-parallax="-0.03">
           <div class="section-eyebrow">
@@ -768,44 +793,6 @@
         </div>
       </section>
 
-      <!-- SECTION 8: Final CTA -->
-      <section class="story-block" id="download-cta">
-        <div class="final-cta-box reveal-on-scroll" data-scale-stage>
-          <div class="cta-app-icon" aria-hidden="true">
-            <img src="assets/app-icon.png" alt="Koshtu App Icon" width="84" height="84" />
-          </div>
-          <h2 class="heading-2" style="max-width: 680px;" data-scroll-compose data-i18n="cta_heading">
-            Спробуй Koshtu безкоштовно — і витрачай зі спокійною душею
-          </h2>
-
-          <p class="title-2" style="max-width: 600px; color: #1F2937;" data-i18n="cta_desc">
-            Завантаж застосунок для iOS або Android, створи свій перший бюджет за 30 секунд і відчуй спокій за власні гроші.
-          </p>
-
-          <div class="store-badges-row" style="justify-content: center;">
-            <a href="#download-cta" class="store-badge">
-              <svg width="24" height="24" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-                <path d="M128.23,40A40.06,40.06,0,0,1,168,0a8,8,0,0,1,8,8,40.06,40.06,0,0,1-39.77,40,8,8,0,0,1-8-8ZM215.13,182.84c-8.69,20.36-25.87,57.16-49.76,57.16-12.56,0-18.89-4.14-24.47-7.79-5.25-3.43-9.8-6.41-17.9-6.41-7.82,0-12.42,3-17.75,6.49-5.57,3.64-11.89,7.71-24.15,7.71-22.25,0-41.15-39.11-49.26-62.18-10.17-28.91-8.52-58.13,4.41-78.18A62.08,62.08,0,0,1,90,69.76c12.06,0,19.72,3.88,25.88,7,5.23,2.65,9.36,4.74,13.66,4.74,3.87,0,7.84-2,13.06-4.7,6.29-3.22,14.12-7.23,26.15-7.23a60.35,60.35,0,0,1,51.67,28.76,7.92,7.92,0,0,1-2.55,11.27c-12.92,7.57-20.51,20.89-19.83,34.77.72,14.66,9.54,27.18,23,33.47A8,8,0,0,1,215.13,182.84Z"/>
-              </svg>
-              <div class="store-badge-meta">
-                <span class="caption-5" style="opacity: 0.8;" data-i18n="badge_apple_top">Завантажити в</span>
-                <span class="button-sm">App Store</span>
-              </div>
-            </a>
-
-            <a href="#download-cta" class="store-badge">
-              <svg width="24" height="24" viewBox="0 0 256 256" fill="currentColor" aria-hidden="true">
-                <path d="M223.86,114.13,55.82,18.1A16,16,0,0,0,32,32V224a16,16,0,0,0,23.82,13.9l168.04-96a16,16,0,0,0,0-27.77ZM48,208.58V47.42L146.51,128Zm111.41-69.7L66.85,214.44,180.58,149.45ZM66.85,41.56,180.58,106.55l-21.17,12.57Z"/>
-              </svg>
-              <div class="store-badge-meta">
-                <span class="caption-5" style="opacity: 0.8;" data-i18n="badge_google_top">Завантажити в</span>
-                <span class="button-sm">Google Play</span>
-              </div>
-            </a>
-          </div>
-        </div>
-      </section>
-
     </div>
   </main>
 
@@ -850,6 +837,6 @@
     </div>
   </footer>
 
-  <script src="app.js?v=20261105e"></script>
+  <script src="app.js?v=20261114a"></script>
 </body>
 </html>

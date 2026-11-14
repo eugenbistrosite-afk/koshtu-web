@@ -34,7 +34,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Geist+Mono:wght@500;600&family=Manrope:wght@400;500;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="styles.css?v=20261106a" />
+  <link rel="stylesheet" href="styles.css?v=20261114a" />
 
   <!-- Google tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-6B2R3BJ0L1"></script>
@@ -66,10 +66,11 @@
       </a>
 
       <ul class="nav-links">
-        <li><a href="index.html" class="nav-link title-4" data-i18n="legal_nav_home">На головну</a></li>
-        <li><a href="privacy.html" class="nav-link title-4" data-i18n="legal_nav_privacy">Конфіденційність</a></li>
-        <li><a href="terms.html" class="nav-link title-4" aria-current="page" data-i18n="legal_nav_terms">Умови та підтримка</a></li>
-        <li><a href="account-deletion.html" class="nav-link title-4" data-i18n="legal_nav_deletion">Видалення даних</a></li>
+        <li><a href="index.html#live-sandbox" class="nav-link title-4" data-i18n="nav_calc">Калькулятор</a></li>
+        <li><a href="index.html#user-journey" class="nav-link title-4" data-i18n="nav_how">Як працює</a></li>
+        <li><a href="index.html#benefits" class="nav-link title-4" data-i18n="nav_benefits">Переваги</a></li>
+        <li><a href="index.html#faq" class="nav-link title-4" data-i18n="nav_faq">Питання</a></li>
+        <li><a href="about.html" class="nav-link title-4" aria-current="page" data-i18n="nav_info">Про проєкт</a></li>
       </ul>
 
       <div class="nav-actions">
@@ -82,17 +83,8 @@
           aria-label="Switch to English"
           title="Switch to English"
         >
-          <svg class="lang-circle-flag lang-circle-flag-uk" viewBox="0 0 32 32" aria-hidden="true">
-            <rect width="32" height="16" fill="#0057B7" />
-            <rect y="16" width="32" height="16" fill="#FFD700" />
-          </svg>
-          <svg class="lang-circle-flag lang-circle-flag-en" viewBox="0 0 32 32" aria-hidden="true">
-            <rect width="32" height="32" fill="#012169" />
-            <path d="M0,0 L32,32 M32,0 L0,32" stroke="#FFFFFF" stroke-width="5" />
-            <path d="M0,0 L32,32 M32,0 L0,32" stroke="#C8102E" stroke-width="2.8" />
-            <path d="M16,0 V32 M0,16 H32" stroke="#FFFFFF" stroke-width="8" />
-            <path d="M16,0 V32 M0,16 H32" stroke="#C8102E" stroke-width="4.8" />
-          </svg>
+          <span class="lang-label lang-label-en">EN</span>
+          <span class="lang-label lang-label-ua">UA</span>
         </button>
         <a href="index.html#download-cta" class="btn btn-nav-illustrative button-sm nav-cta-desktop" data-i18n="nav_cta">Спробувати</a>
         <button
@@ -113,9 +105,7 @@
   <div id="mobile-menu" class="mobile-menu" data-mobile-menu aria-hidden="true">
     <ul class="mobile-menu-list">
       <li class="mobile-menu-item"><a href="index.html" class="heading-4" data-i18n="legal_nav_home">На головну</a></li>
-      <li class="mobile-menu-item"><a href="privacy.html" class="heading-4" data-i18n="footer_privacy">Політика конфіденційності</a></li>
-      <li class="mobile-menu-item"><a href="terms.html" class="heading-4" data-i18n="footer_terms">Умови використання та підтримка</a></li>
-      <li class="mobile-menu-item"><a href="account-deletion.html" class="heading-4" data-i18n="footer_deletion">Видалення акаунту</a></li>
+      <li class="mobile-menu-item"><a href="about.html" class="heading-4" data-i18n="nav_info">Про проєкт</a></li>
     </ul>
     <div class="mobile-menu-cta">
       <a href="index.html" class="btn btn-primary button-md" style="width: 100%;" data-i18n="legal_back_btn">Повернутися до Koshtu</a>
@@ -125,9 +115,17 @@
   <main id="main-content">
     <section class="legal-header">
       <div class="container" style="padding-top: var(--sp-400);">
-        <div class="hero-badge">
-          <span class="hero-badge-dot" aria-hidden="true"></span>
-          <span class="caption-1" data-i18n="pp_updated">Оновлено: Листопад 2026 року</span>
+        <nav class="hub-tabs" aria-label="Розділи про проєкт">
+          <a href="about.html" class="hub-tab" data-i18n="footer_about">Про розробника</a>
+          <a href="terms.html" class="hub-tab" aria-current="page" data-i18n="legal_nav_terms">Умови та підтримка</a>
+          <a href="privacy.html" class="hub-tab" data-i18n="legal_nav_privacy">Конфіденційність</a>
+          <a href="account-deletion.html" class="hub-tab" data-i18n="legal_nav_deletion">Видалення даних</a>
+        </nav>
+        <div>
+          <div class="hero-badge">
+            <span class="hero-badge-dot" aria-hidden="true"></span>
+            <span class="caption-1" data-i18n="pp_updated">Оновлено: Листопад 2026 року</span>
+          </div>
         </div>
         <h1 class="heading-1 hero-heading" data-i18n="terms_title">Умови використання (Terms of Use) та Підтримка</h1>
         <p class="title-2 text-secondary" style="max-width: 680px;" data-i18n="terms_subtitle">
@@ -253,6 +251,6 @@
     </div>
   </footer>
 
-  <script src="app.js?v=20261105e"></script>
+  <script src="app.js?v=20261114a"></script>
 </body>
 </html>
