@@ -87,7 +87,79 @@
         <li><a href="index.html#user-journey" class="nav-link title-4" data-i18n="nav_how">Як працює</a></li>
         <li><a href="index.html#benefits" class="nav-link title-4" data-i18n="nav_benefits">Переваги</a></li>
         <li><a href="index.html#faq" class="nav-link title-4" data-i18n="nav_faq">Питання</a></li>
-        <li><a href="about.html" class="nav-link title-4" aria-current="page" data-i18n="nav_info">Про проєкт</a></li>
+        <li class="nav-dropdown-item" data-nav-dropdown>
+          <a href="about.html" class="nav-link nav-dropdown-trigger title-4" aria-current="page" aria-haspopup="true" aria-expanded="false">
+            <span data-i18n="nav_info">Про проєкт</span>
+            <svg class="nav-chevron" width="12" height="12" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <polyline points="4 6 8 10 12 6"></polyline>
+            </svg>
+          </a>
+          <div class="nav-mega-menu" role="menu" aria-label="Про проєкт">
+            <div class="nav-mega-grid">
+              <a href="about.html" class="nav-mega-card" role="menuitem">
+                <div class="nav-mega-thumb bg-mint">
+                  <img src="assets/eugen-kovalchuk.jpg" alt="" class="nav-mega-avatar" width="56" height="56" />
+                </div>
+                <div class="nav-mega-title" data-i18n="footer_about">Про розробника</div>
+                <ul class="nav-mega-list">
+                  <li><span data-i18n="mega_about_1">Євген Ковальчук</span> <span class="nav-mega-pill" data-i18n="mega_badge_author">Автор</span></li>
+                  <li data-i18n="mega_about_2">Філософія та принципи</li>
+                  <li data-i18n="mega_about_3">Портфоліо та LinkedIn</li>
+                </ul>
+              </a>
+
+              <a href="terms.html" class="nav-mega-card" role="menuitem">
+                <div class="nav-mega-thumb bg-cyan">
+                  <span class="nav-mega-icon-badge" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#034B61" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                    </svg>
+                  </span>
+                </div>
+                <div class="nav-mega-title" data-i18n="legal_nav_terms">Умови та підтримка</div>
+                <ul class="nav-mega-list">
+                  <li data-i18n="mega_terms_1">Правила користування</li>
+                  <li data-i18n="mega_terms_2">Підписки App Store / Play</li>
+                  <li><span data-i18n="mega_terms_3">Форма підтримки</span> <span class="nav-mega-pill">24h</span></li>
+                </ul>
+              </a>
+
+              <a href="privacy.html" class="nav-mega-card" role="menuitem">
+                <div class="nav-mega-thumb bg-lavender">
+                  <span class="nav-mega-icon-badge" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#3B1D70" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                      <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                    </svg>
+                  </span>
+                </div>
+                <div class="nav-mega-title" data-i18n="legal_nav_privacy">Конфіденційність</div>
+                <ul class="nav-mega-list">
+                  <li><span data-i18n="mega_priv_1">Локально на смартфоні</span> <span class="nav-mega-pill">100%</span></li>
+                  <li data-i18n="mega_priv_2">Без доступу до банків</li>
+                  <li data-i18n="mega_priv_3">Без реклами і трекерів</li>
+                </ul>
+              </a>
+
+              <a href="account-deletion.html" class="nav-mega-card" role="menuitem">
+                <div class="nav-mega-thumb bg-peach">
+                  <span class="nav-mega-icon-badge" aria-hidden="true">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#70340A" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="3 6 5 6 21 6"></polyline>
+                      <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                    </svg>
+                  </span>
+                </div>
+                <div class="nav-mega-title" data-i18n="legal_nav_deletion">Видалення даних</div>
+                <ul class="nav-mega-list">
+                  <li><span data-i18n="mega_del_1">У додатку за 1 дотик</span> <span class="nav-mega-pill" data-i18n="mega_badge_fast">5 сек</span></li>
+                  <li data-i18n="mega_del_2">Запит через веб-форму</li>
+                  <li data-i18n="mega_del_3">Повне стирання записів</li>
+                </ul>
+              </a>
+            </div>
+          </div>
+        </li>
       </ul>
 
       <div class="nav-actions">
@@ -124,7 +196,15 @@
   <div id="mobile-menu" class="mobile-menu" data-mobile-menu aria-hidden="true">
     <ul class="mobile-menu-list">
       <li class="mobile-menu-item"><a href="index.html" class="heading-4" data-i18n="legal_nav_home">На головну</a></li>
-      <li class="mobile-menu-item"><a href="about.html" class="heading-4" data-i18n="nav_info">Про проєкт</a></li>
+      <li class="mobile-menu-item">
+        <span class="caption-3 text-secondary" style="display: block; margin-bottom: 6px;" data-i18n="nav_info">Про проєкт</span>
+        <div class="mobile-sublinks">
+          <a href="about.html" class="mobile-sublink-card" data-i18n="footer_about">Про розробника</a>
+          <a href="terms.html" class="mobile-sublink-card" data-i18n="legal_nav_terms">Умови та підтримка</a>
+          <a href="privacy.html" class="mobile-sublink-card" data-i18n="legal_nav_privacy">Конфіденційність</a>
+          <a href="account-deletion.html" class="mobile-sublink-card" data-i18n="legal_nav_deletion">Видалення даних</a>
+        </div>
+      </li>
     </ul>
     <div class="mobile-menu-cta">
       <a href="index.html" class="btn btn-primary button-md" style="width: 100%;" data-i18n="legal_back_btn">Повернутися до Koshtu</a>

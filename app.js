@@ -28,6 +28,21 @@
       legal_nav_deletion: 'Видалення даних',
       legal_back_btn: 'Повернутися до Koshtu',
 
+      mega_about_1: 'Євген Ковальчук',
+      mega_badge_author: 'Автор',
+      mega_about_2: 'Філософія та принципи',
+      mega_about_3: 'Портфоліо та LinkedIn',
+      mega_terms_1: 'Правила користування',
+      mega_terms_2: 'Підписки App Store / Play',
+      mega_terms_3: 'Форма підтримки',
+      mega_priv_1: 'Локально на смартфоні',
+      mega_priv_2: 'Без доступу до банків',
+      mega_priv_3: 'Без реклами і трекерів',
+      mega_del_1: 'У додатку за 1 дотик',
+      mega_badge_fast: '5 сек',
+      mega_del_2: 'Запит через веб-форму',
+      mega_del_3: 'Повне стирання записів',
+
       hero_badge: 'KOSHTU V1.0 · IOS & ANDROID',
       hero_heading: 'Знай свій ліміт<br />на сьогодні.<br />Витрачай спокійно.',
       hero_subheading:
@@ -315,6 +330,21 @@
       legal_nav_terms: 'Terms & Support',
       legal_nav_deletion: 'Data Deletion',
       legal_back_btn: 'Back to Koshtu',
+
+      mega_about_1: 'Eugen Kovalchuk',
+      mega_badge_author: 'Creator',
+      mega_about_2: 'Philosophy & principles',
+      mega_about_3: 'Portfolio & LinkedIn',
+      mega_terms_1: 'Terms of use',
+      mega_terms_2: 'App Store / Play billing',
+      mega_terms_3: 'Support form',
+      mega_priv_1: 'Stored on your phone',
+      mega_priv_2: 'No bank linking',
+      mega_priv_3: 'Zero ads or trackers',
+      mega_del_1: '1-tap inside the app',
+      mega_badge_fast: '5 sec',
+      mega_del_2: 'Web deletion request',
+      mega_del_3: 'Complete data wipe',
 
       hero_badge: 'KOSHTU V1.0 · IOS & ANDROID',
       hero_heading: 'Know your safe limit<br />for today.<br />Spend stress-free.',
@@ -744,6 +774,49 @@
       }
     });
   }
+
+  /* Desktop Hover Mega-Menu (Nomad-style with hover intent & Escape support) */
+  document.querySelectorAll('[data-nav-dropdown]').forEach((dropdown) => {
+    const trigger = dropdown.querySelector('.nav-dropdown-trigger');
+    let closeTimer = null;
+
+    const openDropdown = () => {
+      if (closeTimer) {
+        clearTimeout(closeTimer);
+        closeTimer = null;
+      }
+      dropdown.classList.add('is-open');
+      if (trigger) trigger.setAttribute('aria-expanded', 'true');
+    };
+
+    const scheduleClose = () => {
+      if (closeTimer) clearTimeout(closeTimer);
+      closeTimer = setTimeout(() => {
+        dropdown.classList.remove('is-open');
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      }, 150);
+    };
+
+    dropdown.addEventListener('mouseenter', openDropdown);
+    dropdown.addEventListener('mouseleave', scheduleClose);
+    dropdown.addEventListener('focusin', openDropdown);
+    dropdown.addEventListener('focusout', (e) => {
+      if (!dropdown.contains(e.relatedTarget)) {
+        dropdown.classList.remove('is-open');
+        if (trigger) trigger.setAttribute('aria-expanded', 'false');
+      }
+    });
+
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' && dropdown.classList.contains('is-open')) {
+        dropdown.classList.remove('is-open');
+        if (trigger) {
+          trigger.setAttribute('aria-expanded', 'false');
+          trigger.focus();
+        }
+      }
+    });
+  });
 
   if (navWrapper) {
     let lastScrollY = window.scrollY;

@@ -30,3 +30,4 @@
 - Individuals looking to stop living paycheck to paycheck by knowing their exact daily limit.
 - Users who want to pay off consumer debts, personal loans, or credit cards systematically.
 - Privacy-conscious people who refuse to share open banking access or bank credentials with third-party servers.
+
